@@ -26,9 +26,10 @@ def add_image(frame,image_path,col=0,command=None):
 root = Tk()
 root.title("Calculator")
 root.geometry("376x410")
+root.iconbitmap("assets/icon.ico")
 root.resizable(False, False)
 
-
+# Display Frame Here :
 Display_frame = Frame(root, bg="yellow", width=360, height=65)
 Display_frame.grid(row=0, column=0)
 
