@@ -1,5 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
+from tkinter import filedialog
+from tkinter import simpledialog
 from PIL import ImageTk, Image
 import os
 
@@ -11,7 +13,7 @@ def add_image(frame, image_path, col=0, command=None):
     tk_image = ImageTk.PhotoImage(image)
     image_label = Label(frame, image=tk_image)
     image_label.image = tk_image
-    image_label.grid(row=0, column=col)
+    image_label.grid(row=0, column=col, )
     if command:
         image_label.bind("<Button-1>", command)
     return image_label
@@ -28,23 +30,36 @@ def set_Value(value):
     elif value == "00":
         # Add double zero
         display_label.config(text=current_value + "00")
-
-    elif value in ["+", "-", "*", "/"]:
-        # Add the operator to the display
-        display_label.config(text=current_value + value)
-
-    elif value == ".":
-        # Add the decimal point
-        display_label.config(text=current_value + ".")
-
-
     elif value == "=":
         # Evaluate the expression
         try:
+            # Evaluate the current expression safely
             result = str(eval(current_value))
+            if result.find("."):
+                result = str(round(float(result), 8))
+
+            # Display the result
             display_label.config(text=result)
+        except NameError:
+            # Handle invalid names
+            messagebox.showerror("Error", "Invalid Name")
+            display_label.config(text="")
+        except ValueError:
+            # Handle invalid values
+            messagebox.showerror("Error", "Invalid Value")
+            display_label.config(text="")
+        except ZeroDivisionError:
+            # Handle division by zero error
+            messagebox.showerror("Error", "Cannot divide by zero")
+            display_label.config(text="")
+        except SyntaxError:
+            # Handle syntax errors (e.g., incomplete expressions)
+            messagebox.showerror("Error", "Invalid Syntax")
+            display_label.config(text="")
         except Exception as e:
-            messagebox.showerror("Error", "Invalid Input")
+            # Handle any other exceptions
+            messagebox.showerror("Error", f"Invalid Input: {e}")
+            display_label.config(text="")
     else:
         # Append the number or operator to the display
         display_label.config(text=current_value + value)
@@ -59,7 +74,7 @@ root.resizable(False, False)
 Display_frame = Frame(root, bg="yellow", width=360, height=65)
 Display_frame.grid(row=0, column=0)
 
-display_label = Label(Display_frame, text="", font=("monospace", 40), fg="black")
+display_label = Label(Display_frame, text="", font=("monospace", 40),padx=0,pady=0, bg="yellow", fg="black")
 display_label.grid(row=0, column=0)
 
 # All Buttons Here:
