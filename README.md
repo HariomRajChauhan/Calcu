@@ -83,7 +83,7 @@ pip install pillow
    python -m PyInstaller ./main.py --onefile
    ```
 
-   The `main.spec` file should be like this: [](main.spec)
+   The `main.spec` file should be like this: [File](main.spec)
 
    After adding the path of the icon file in the `main.spec` file, run the following command in CMD in that curent directory:
 
