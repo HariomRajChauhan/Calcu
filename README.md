@@ -1,6 +1,3 @@
-Here's a `README.md` file for the calculator application:
-
-```markdown
 # Calculator GUI Application
 
 This is a simple calculator application built using Python's Tkinter library. The calculator provides a graphical user interface (GUI) for performing basic arithmetic operations. The interface uses images for buttons, enhancing the visual appearance and user experience.
@@ -12,6 +9,7 @@ This is a simple calculator application built using Python's Tkinter library. Th
 - **Error Handling**: Displays specific error messages for invalid inputs, such as syntax errors, division by zero, and more.
 - **Double Zero Button**: Includes a "00" button to quickly add two zeros to the input.
 - **Interactive GUI**: Uses image buttons for a visually appealing interface.
+- **Upcomming New Features**: Curently I am writing its new features for its advance version ie:-(Scientific Calculator)
 
 ## Prerequisites
 
@@ -31,8 +29,8 @@ pip install pillow
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/calculator-gui.git
-   cd calculator-gui
+   git clone https://github.com/yourusername/calculator-gui.git](https://github.com/HariomRajChauhan/Calcu.git
+   cd Calcu
    ```
 
 2. **Add Assets**:
@@ -51,7 +49,7 @@ pip install pillow
    Execute the script using Python:
 
    ```bash
-   python calculator.py
+   python main.py
    ```
 
    The calculator GUI will open and be ready for use.
@@ -68,9 +66,9 @@ pip install pillow
 ## File Structure
 
 ```plaintext
-calculator-gui/
+Calcu
 │
-├── calculator.py        # Main application script
+├── main.py              # Main application script
 ├── README.md            # This readme file
 └── assets/              # Directory containing all image assets
     ├── icon.ico
@@ -78,8 +76,8 @@ calculator-gui/
     ├── 00.png
     ├── del.png
     ├── ac.png
-    ├── 1.png
-    ├── ...
+    ├── 1.png to 9.png
+    ├── dot.png
 ```
 
 ## Error Handling
@@ -90,13 +88,11 @@ calculator-gui/
 - **Syntax Error**: Displayed when there is an invalid syntax in the expression.
 - **Invalid Input**: General error message for any other exceptions.
 
-## Screenshots
-
-Add screenshots of your calculator application to show the interface.
+## GUI Screenshot
+![GUI_screenshot](assets/CAlculator.png)
 
 ## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is under Hariom Raj Chauhan.
 
 ## Contributing
 
@@ -106,6 +102,3 @@ Contributions are welcome! Please feel free to submit a pull request or report a
 
 - Thanks to the Python and Tkinter communities for their excellent resources and support.
 
-```
-
-This `README.md` provides all the necessary information about the project, including setup, usage, features, and error handling. Make sure to adjust the content (like repository URL and assets) to match your specific implementation and preferences.
