@@ -85,46 +85,14 @@ pip install pillow
 
    The `main.spec` file should be like this:
 
-   ```python
-   # -*- mode: python ; coding: utf-8 -*-
+   ```bash
+   ![main_spec_file](main.spec)
+   ```
 
-block_cipher = None
+   After adding the path of the icon file in the `main.spec` file, run the following command in CMD in that curent directory:
 
-a = Analysis(
-    ['main.py'],
-    pathex=[],
-    binaries=[],
-    datas=[('assets', 'assets')],
-    hiddenimports=['pythoncom', 'pywintypes'],
-    hookspath=[],
-    hooksconfig={},
-    runtime_hooks=[],
-    excludes=[],
-    noarchive=False,
-    optimize=0,
-)
-pyz = PYZ(a.pure)
-exe = EXE(
-    pyz,
-    a.scripts,
-    a.binaries,
-    a.datas,
-    [],
-    name='main',
-    debug=False,
-    bootloader_ignore_signals=False,
-    strip=False,
-    upx=True,
-    upx_exclude=[],
-    runtime_tmpdir=None,
-    console=True,
-    disable_windowed_traceback=False,
-    argv_emulation=False,
-    target_arch=None,
-    codesign_identity=None,
-    entitlements_file=None,
-)
-
+   ```bash
+   python -m PyInstaller ./main.spec
    ```
 
    Executable Program:
