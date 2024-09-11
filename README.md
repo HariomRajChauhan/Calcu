@@ -20,6 +20,7 @@ Make sure you have the following installed on your system:
 - Pillow (Python Imaging Library) for handling images
 
 To install Pillow, run:
+
 ```bash
 pip install pillow
 ```
@@ -34,7 +35,7 @@ pip install pillow
    ```
 
 2. **Add Assets**:
-   
+
    Make sure you have all the required image assets in the `assets` directory:
    - `exit.png`
    - `00.png`
@@ -53,6 +54,85 @@ pip install pillow
    ```
 
    The calculator GUI will open and be ready for use.
+
+4. **Convet .py to .exe**:
+   Install pyinstaller using pip:
+
+   ```bash
+   pip install pyinstaller
+   ```
+
+   Install pywin32 using pip:
+
+   ```bash
+   pip install pywin32
+   ```
+
+   Dependencies: `pythoncom`, `pywintypes`
+
+   Convert the script to an executable:
+
+   ```bash
+   pyinstaller --onefile --windowed main.py
+   pyinstaller --onefile main.py
+   ```
+
+   OR
+
+   ```bash
+   python -m PyInstaller ./main.py --onefile
+   ```
+
+   The `main.spec` file should be like this:
+
+   ```python
+   # -*- mode: python ; coding: utf-8 -*-
+
+block_cipher = None
+
+a = Analysis(
+    ['main.py'],
+    pathex=[],
+    binaries=[],
+    datas=[('assets', 'assets')],
+    hiddenimports=['pythoncom', 'pywintypes'],
+    hookspath=[],
+    hooksconfig={},
+    runtime_hooks=[],
+    excludes=[],
+    noarchive=False,
+    optimize=0,
+)
+pyz = PYZ(a.pure)
+exe = EXE(
+    pyz,
+    a.scripts,
+    a.binaries,
+    a.datas,
+    [],
+    name='main',
+    debug=False,
+    bootloader_ignore_signals=False,
+    strip=False,
+    upx=True,
+    upx_exclude=[],
+    runtime_tmpdir=None,
+    console=True,
+    disable_windowed_traceback=False,
+    argv_emulation=False,
+    target_arch=None,
+    codesign_identity=None,
+    entitlements_file=None,
+)
+
+   ```
+
+   Executable Program:
+   The calculator GUI EXE will be maked in your `./dist` directory.
+
+   ```bash
+   ./dist/main.exe
+   ```
 
 ## Usage
 
@@ -89,9 +169,11 @@ Calcu
 - **Invalid Input**: General error message for any other exceptions.
 
 ## GUI Screenshot
+
 ![GUI_screenshot](assets/CAlculator.png)
 
 ## License
+
 This project is under Hariom Raj Chauhan.
 
 ## Contributing
