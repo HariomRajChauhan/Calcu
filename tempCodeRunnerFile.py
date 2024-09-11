@@ -47,7 +47,7 @@ def set_Value(value):
             if result.find("."):
                 result = str(round(float(result), 8))
             display_label.config(text=current_value)
-            display_label_down.config(text="Ans= "+result)
+            display_label_down.config(text="Ans = "+result)
         except NameError:
             display_label.config(text = "")
             display_label_down.config(text="Name Error")
@@ -68,7 +68,7 @@ def set_Value(value):
 
 root = Tk()
 root.title("Calculator")
-root.geometry("360x400")
+root.geometry("360x390")
 root.iconbitmap("assets/icon.ico")
 root.resizable(False, False)
 
@@ -76,10 +76,10 @@ root.resizable(False, False)
 Display_frame = Frame(root, width=360, height=65, padx=0, pady=0, borderwidth=0, highlightthickness=0)
 Display_frame.grid(row=0, column=0)
 
-display_label = Label(Display_frame, text="", font=("monospace",26), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
+display_label = Label(Display_frame, text="", font=("monospace",30), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
 display_label.grid(row=0, column=0)
 
-display_label_down = Label(Display_frame, text="", font=("monospace", 20), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
+display_label_down = Label(Display_frame, text="", font=("monospace", 22), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
 display_label_down.grid(row=1, column=0)
 
 # All Buttons Here:
