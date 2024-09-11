@@ -29,7 +29,7 @@ pip install pillow
 1. **Clone the Repository**:
 
    ```bash
-   git clone https://github.com/yourusername/calculator-gui.git](https://github.com/HariomRajChauhan/Calcu.git
+   git clone https://github.com/HariomRajChauhan/Calcu.git
    cd Calcu
    ```
 
