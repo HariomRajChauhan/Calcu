@@ -1,4 +1,4 @@
-# Calculator GUI Application
+# CALCU - A GUI Application
 
 This is a simple calculator application built using Python's Tkinter library. The calculator provides a graphical user interface (GUI) for performing basic arithmetic operations. The interface uses images for buttons, enhancing the visual appearance and user experience.
 
