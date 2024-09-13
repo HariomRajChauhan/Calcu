@@ -47,7 +47,7 @@ def set_Value(value):
             if result.find("."):
                 result = str(round(float(result), 8))
             display_label.config(text=current_value)
-            display_label_down.config(text="Ans= "+result)
+            display_label_down.config(text=result)
         except NameError:
             display_label.config(text = "")
             display_label_down.config(text="Name Error")
@@ -66,20 +66,27 @@ def set_Value(value):
     else:
         display_label.config(text=current_value + value)
 
+# Get the absolute path of the current directory
+current_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Set the icon path
+icon_path = os.path.join(current_dir, "assets", "icon.ico")
+
+# Initialize the main window
 root = Tk()
 root.title("Calculator")
-root.geometry("360x400")
-root.iconbitmap("assets/icon.ico")
+root.geometry("360x390")
+root.iconbitmap(icon_path)  # Use absolute path for the icon
 root.resizable(False, False)
 
 # Display Frame Here:
 Display_frame = Frame(root, width=360, height=65, padx=0, pady=0, borderwidth=0, highlightthickness=0)
 Display_frame.grid(row=0, column=0)
 
-display_label = Label(Display_frame, text="", font=("monospace",26), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
+display_label = Label(Display_frame, text="", font=("monospace",28), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
 display_label.grid(row=0, column=0)
 
-display_label_down = Label(Display_frame, text="", font=("monospace", 20), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
+display_label_down = Label(Display_frame, text="", font=("monospace", 16), padx=0, pady=0, fg="black", borderwidth=0, highlightthickness=0)
 display_label_down.grid(row=1, column=0)
 
 # All Buttons Here:
@@ -89,41 +96,43 @@ main_frame.grid(row=1, column=0)
 first_frame = Frame(main_frame, bg="black", width=360, height=65, padx=0, pady=0)
 first_frame.grid(row=0, column=0)
 
-add_image(first_frame, "assets/exit.png", "assets/exit_clicked.png", 0, lambda e: root.destroy())
-add_image(first_frame, "assets/00.png", "assets/00_clicked.png", 1, lambda e: set_Value("00"))
-add_image(first_frame, "assets/del.png", "assets/del_clicked.png", 2, lambda e: set_Value("DEL"))
-add_image(first_frame, "assets/ac.png", "assets/ac_clicked.png", 3, lambda e: set_Value("AC"))
+# Use absolute paths for all image files
+add_image(first_frame, os.path.join(current_dir, "assets", "exit.png"), os.path.join(current_dir, "assets", "exit_clicked.png"), 0, lambda e: root.destroy())
+add_image(first_frame, os.path.join(current_dir, "assets", "00.png"), os.path.join(current_dir, "assets", "00_clicked.png"), 1, lambda e: set_Value("00"))
+add_image(first_frame, os.path.join(current_dir, "assets", "del.png"), os.path.join(current_dir, "assets", "del_clicked.png"), 2, lambda e: set_Value("DEL"))
+add_image(first_frame, os.path.join(current_dir, "assets", "ac.png"), os.path.join(current_dir, "assets", "ac_clicked.png"), 3, lambda e: set_Value("AC"))
 
 second_frame = Frame(main_frame, bg="black", width=360, height=65, padx=0, pady=0)
 second_frame.grid(row=1, column=0)
 
-add_image(second_frame, "assets/7.png", "assets/7_clicked.png", 0, lambda e: set_Value("7"))
-add_image(second_frame, "assets/8.png", "assets/8_clicked.png", 1, lambda e: set_Value("8"))
-add_image(second_frame, "assets/9.png", "assets/9_clicked.png", 2, lambda e: set_Value("9"))
-add_image(second_frame, "assets/multiple.png", "assets/multiple_clicked.png", 3, lambda e: set_Value("*"))
+add_image(second_frame, os.path.join(current_dir, "assets", "7.png"), os.path.join(current_dir, "assets", "7_clicked.png"), 0, lambda e: set_Value("7"))
+add_image(second_frame, os.path.join(current_dir, "assets", "8.png"), os.path.join(current_dir, "assets", "8_clicked.png"), 1, lambda e: set_Value("8"))
+add_image(second_frame, os.path.join(current_dir, "assets", "9.png"), os.path.join(current_dir, "assets", "9_clicked.png"), 2, lambda e: set_Value("9"))
+add_image(second_frame, os.path.join(current_dir, "assets", "multiple.png"), os.path.join(current_dir, "assets", "multiple_clicked.png"), 3, lambda e: set_Value("*"))
 
 third_frame = Frame(main_frame, bg="black", width=360, height=65, padx=0, pady=0)
 third_frame.grid(row=2, column=0)
 
-add_image(third_frame, "assets/4.png", "assets/4_clicked.png", 0, lambda e: set_Value("4"))
-add_image(third_frame, "assets/5.png", "assets/5_clicked.png", 1, lambda e: set_Value("5"))
-add_image(third_frame, "assets/6.png", "assets/6_clicked.png", 2, lambda e: set_Value("6"))
-add_image(third_frame, "assets/divide.png", "assets/divide_clicked.png", 3, lambda e: set_Value("/"))
+add_image(third_frame, os.path.join(current_dir, "assets", "4.png"), os.path.join(current_dir, "assets", "4_clicked.png"), 0, lambda e: set_Value("4"))
+add_image(third_frame, os.path.join(current_dir, "assets", "5.png"), os.path.join(current_dir, "assets", "5_clicked.png"), 1, lambda e: set_Value("5"))
+add_image(third_frame, os.path.join(current_dir, "assets", "6.png"), os.path.join(current_dir, "assets", "6_clicked.png"), 2, lambda e: set_Value("6"))
+add_image(third_frame, os.path.join(current_dir, "assets", "divide.png"), os.path.join(current_dir, "assets", "divide_clicked.png"), 3, lambda e: set_Value("/"))
 
 fourth_frame = Frame(main_frame, bg="black", width=360, height=65, padx=0, pady=0)
 fourth_frame.grid(row=3, column=0)
 
-add_image(fourth_frame, "assets/1.png", "assets/1_clicked.png", 0, lambda e: set_Value("1"))
-add_image(fourth_frame, "assets/2.png", "assets/2_clicked.png", 1, lambda e: set_Value("2"))
-add_image(fourth_frame, "assets/3.png", "assets/3_clicked.png", 2, lambda e: set_Value("3"))
-add_image(fourth_frame, "assets/minus.png", "assets/minus_clicked.png", 3, lambda e: set_Value("-"))
+add_image(fourth_frame, os.path.join(current_dir, "assets", "1.png"), os.path.join(current_dir, "assets", "1_clicked.png"), 0, lambda e: set_Value("1"))
+add_image(fourth_frame, os.path.join(current_dir, "assets", "2.png"), os.path.join(current_dir, "assets", "2_clicked.png"), 1, lambda e: set_Value("2"))
+add_image(fourth_frame, os.path.join(current_dir, "assets", "3.png"), os.path.join(current_dir, "assets", "3_clicked.png"), 2, lambda e: set_Value("3"))
+add_image(fourth_frame, os.path.join(current_dir, "assets", "minus.png"), os.path.join(current_dir, "assets", "minus_clicked.png"), 3, lambda e: set_Value("-"))
 
 fifth_frame = Frame(main_frame, bg="black", width=360, height=65, padx=0, pady=0)
 fifth_frame.grid(row=4, column=0)
 
-add_image(fifth_frame, "assets/0.png", "assets/0_clicked.png", 0, lambda e: set_Value("0"))
-add_image(fifth_frame, "assets/dot.png", "assets/dot_clicked.png", 1, lambda e: set_Value("."))
-add_image(fifth_frame, "assets/equal.png", "assets/equal_clicked.png", 2, lambda e: set_Value("="))
-add_image(fifth_frame, "assets/add.png", "assets/add_clicked.png", 3, lambda e: set_Value("+"))
+add_image(fifth_frame, os.path.join(current_dir, "assets", "0.png"), os.path.join(current_dir, "assets", "0_clicked.png"), 0, lambda e: set_Value("0"))
+add_image(fifth_frame, os.path.join(current_dir, "assets", "dot.png"), os.path.join(current_dir, "assets", "dot_clicked.png"), 1, lambda e: set_Value("."))
+add_image(fifth_frame, os.path.join(current_dir, "assets", "equal.png"), os.path.join(current_dir, "assets", "equal_clicked.png"), 2, lambda e: set_Value("="))
+add_image(fifth_frame, os.path.join(current_dir, "assets", "add.png"), os.path.join(current_dir, "assets", "add_clicked.png"), 3, lambda e: set_Value("+"))
 
 root.mainloop()
+
